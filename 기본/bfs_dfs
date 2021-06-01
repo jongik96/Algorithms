@@ -1,0 +1,82 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+/*
+4 5 1
+1 2
+1 3
+1 4
+2 4
+3 4
+ */
+public class 백준_BFSDFS_1260 {
+
+	static int n, m, start;
+	static int[][] arr;
+	static boolean[] checked;
+	
+	
+	public static void main(String[] args){
+		// BFS와 DFS
+		Scanner sc= new Scanner(System.in);
+		
+		n = sc.nextInt();
+		m = sc.nextInt();
+		start = sc.nextInt();
+		
+		arr = new int[1001][1001];
+		checked = new boolean[1001]; // 초기값 false
+		
+		for(int i=0; i<m; i++) {
+			int x=sc.nextInt();
+			int y=sc.nextInt();
+			
+			arr[x][y] = arr[y][x] = 1;
+		}
+		dfs(start);
+		
+		checked = new boolean[1001];
+		System.out.println();
+		
+		bfs();
+	}
+
+
+	private static void bfs() {
+		// bfs
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.offer(start);
+		checked[start] = true;
+		System.out.print(start+" ");
+		
+		while(!q.isEmpty()) {
+			int temp = q.poll();
+			
+			for(int j=1; j<=n; j++) {
+				if(arr[temp][j]==1 && checked[j]==false) {
+					q.offer(j);
+					checked[j]=true;
+					System.out.print(j+" ");
+				}
+			}
+			
+		}
+	}
+
+
+	private static void dfs(int i) {
+		// dfs
+		checked[i]=true;
+		System.out.print(i+" ");
+		for(int j=1;j<=n;j++) {
+			if(arr[i][j] ==1 & checked[j]==false) {
+				dfs(j);
+			}
+		}
+		
+		
+	}
+	
+	
+
+}
