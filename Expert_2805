@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Expert_2805_농작물수확하기 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc= new Scanner(System.in);
+		
+		int T = sc.nextInt();
+		for(int tc=1;tc<=T;tc++) {
+			String s;
+			int N = sc.nextInt();
+			int [][] arr = new int[N][N];
+			for(int i=0;i<N;i++) {
+					s=sc.next();
+				for(int j=0;j<N;j++) {
+					arr[i][j]=s.charAt(j)-'0';
+				}
+			}
+			
+			int sum=0;
+			for(int i=0;i<(N/2);i++) {
+				for(int j=N/2-i; j<=N/2+i; j++) {
+					sum+=arr[i][j];
+				}
+			}
+			for(int i=N/2; i>=0; i--) {
+				for(int j=N/2-i; j<=N/2+i; j++) {
+					sum+=arr[N-i-1][j];
+				}
+			}
+			System.out.println("#"+tc+" "+sum);
+			
+			
+			
+			
+//			for(int i=0;i<N;i++) {
+//				for(int j=0;j<N;j++) {
+//					System.out.print(arr[i][j]);
+//				}System.out.println();
+//			}
+			
+			
+			
+			
+			
+		}
+	}
+
+}
