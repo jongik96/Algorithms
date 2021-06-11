@@ -1,11 +1,11 @@
 function solution(participant, completion) {
     var answer = '';
-    const loser = participant.length;
+    const all = participant.length;
     
     participant.sort(); //비교를 위해 정렬해준다.
     completion.sort(); // ''
     
-    for(let i=0;i<loser; i++){
+    for(let i=0;i<all; i++){
         if(participant[i] != completion[i]){
             answer = participant[i];
              return answer;
