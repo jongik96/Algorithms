@@ -23,3 +23,9 @@ function solution(s) {
     }
     return answer;
 }
+
+
+// 다른사람의 풀이
+function solution(s) {
+    return s.split(" ").map(v => v.charAt(0).toUpperCase() + v.substring(1).toLowerCase()).join(" ");
+}
