@@ -15,7 +15,7 @@ citations	       return
 function solution(citations) {
     let answer = 0;
     citations.sort((a,b)=>{
-        return a-b;
+        return a-b; // 오름차순 정렬
     });
     console.log(citations);
     for(let i=0; i<citations.length; i++){
